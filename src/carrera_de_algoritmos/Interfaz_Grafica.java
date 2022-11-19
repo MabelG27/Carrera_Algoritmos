@@ -31,9 +31,6 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtInsercion = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtBurbuja = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -46,6 +43,10 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtTimeSec = new javax.swing.JLabel();
         txtTimeQuick = new javax.swing.JLabel();
         txtTimeBurb = new javax.swing.JLabel();
+        txtMemoInser = new javax.swing.JLabel();
+        txtMemoBurb = new javax.swing.JLabel();
+        txtMemoQuick = new javax.swing.JLabel();
+        txtMemoSec = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,15 +93,6 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtBurbuja.setForeground(new java.awt.Color(0, 102, 153));
         txtBurbuja.setRows(5);
         jScrollPane5.setViewportView(txtBurbuja);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Tiempo:");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("CPU:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Memoria:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Ordenamiento por Inserción");
@@ -166,6 +158,22 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtTimeBurb.setForeground(new java.awt.Color(153, 0, 0));
         txtTimeBurb.setText("0.0");
 
+        txtMemoInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtMemoInser.setForeground(new java.awt.Color(153, 0, 0));
+        txtMemoInser.setText("0.0");
+
+        txtMemoBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtMemoBurb.setForeground(new java.awt.Color(153, 0, 0));
+        txtMemoBurb.setText("0.0");
+
+        txtMemoQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtMemoQuick.setForeground(new java.awt.Color(153, 0, 0));
+        txtMemoQuick.setText("0.0");
+
+        txtMemoSec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtMemoSec.setForeground(new java.awt.Color(153, 0, 0));
+        txtMemoSec.setText("0.0");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -173,43 +181,39 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLlenar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btnLlenar, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTimeInser))
-                                .addGap(18, 18, 18)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTimeSec))
-                                .addGap(18, 18, 18)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(txtTimeQuick)))
-                                .addGap(27, 27, 27)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTimeBurb)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTimeInser)
+                            .addComponent(txtMemoInser))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTimeSec)
+                            .addComponent(txtMemoSec))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTimeQuick)
+                            .addComponent(txtMemoQuick))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTimeBurb)
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMemoBurb))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -226,7 +230,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(btnLlenar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -234,33 +238,35 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel7)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                                .addComponent(jScrollPane5))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4))))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
+                .addGap(6, 6, 6)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
                     .addComponent(txtTimeInser)
                     .addComponent(txtTimeSec)
                     .addComponent(txtTimeQuick)
                     .addComponent(txtTimeBurb))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMemoInser)
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtMemoBurb)
+                        .addComponent(txtMemoQuick)
+                        .addComponent(txtMemoSec)))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,21 +283,10 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLlenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlenarActionPerformed
-
-        LLenar_Arreglo();
-    }//GEN-LAST:event_btnLlenarActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        Limpiar();
-
-
-    }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void BtnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIniciarActionPerformed
 
@@ -314,6 +309,15 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_BtnIniciarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        Limpiar();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnLlenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlenarActionPerformed
+
+        LLenar_Arreglo();
+    }//GEN-LAST:event_btnLlenarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,6 +354,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         });
     }
 
+    //Funcion para limpiar los campos
     public void Limpiar() {
         txtInsercion.setText("");
         txtBurbuja.setText("");
@@ -360,8 +365,12 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtTimeInser.setText("0.0");
         txtTimeQuick.setText("0.0");
         txtTimeSec.setText("0.0");
+        txtMemoInser.setText("0.0");
+        txtMemoBurb.setText("0.0");
+        txtMemoQuick.setText("0.0");
     }
 
+    //Función para llenar el arreglo
     public void LLenar_Arreglo() {
 
         String valores = "";
@@ -388,9 +397,6 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
     private javax.swing.JButton btnLlenar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -404,12 +410,16 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
     private java.awt.Panel panel1;
     public static javax.swing.JTextArea txtBurbuja;
     public static javax.swing.JTextArea txtInsercion;
+    public static javax.swing.JLabel txtMemoBurb;
+    public static javax.swing.JLabel txtMemoInser;
+    public static javax.swing.JLabel txtMemoQuick;
+    private javax.swing.JLabel txtMemoSec;
     public static javax.swing.JTextArea txtQuickSort;
     public static javax.swing.JTextArea txtSecuencial;
     public static javax.swing.JLabel txtTimeBurb;
     public static javax.swing.JLabel txtTimeInser;
     public static javax.swing.JLabel txtTimeQuick;
-    public static javax.swing.JLabel txtTimeSec;
+    private javax.swing.JLabel txtTimeSec;
     private javax.swing.JTextArea txtVector;
     // End of variables declaration//GEN-END:variables
 }

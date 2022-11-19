@@ -2,10 +2,14 @@ package carrera_de_algoritmos;
 
 import static carrera_de_algoritmos.Interfaz_Grafica.txtBurbuja;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtInsercion;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoBurb;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoInser;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoQuick;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtQuickSort;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeBurb;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeInser;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeQuick;
+
 
 public class Algoritmos {
 
@@ -22,14 +26,20 @@ public class Algoritmos {
         @Override
         public void run() {
 
+            //Declaración de variables
             int[] arregloI = new int[arreglo.length];
-
-            double tiemp_ini, tiemp_fin, total_time;
-
-            System.arraycopy(arreglo, 0, arregloI, 0, arreglo.length);
+            double tiemp_ini, tiemp_fin;
+            Runtime runtime = Runtime.getRuntime();
+            double total_memo = 0.0, free_memo = 0.0;
             int aux = 0, cont1 = 0, cont2 = 0;
 
+            //Copiando vector generado
+            System.arraycopy(arreglo, 0, arregloI, 0, arreglo.length);
+
+            total_memo = runtime.totalMemory();
             tiemp_ini = System.currentTimeMillis();
+
+            //Ciclo de ordenamiento
             for (cont1 = 1; cont1 < arregloI.length; cont1++) {
 
                 aux = arregloI[cont1];
@@ -38,17 +48,20 @@ public class Algoritmos {
                     arregloI[cont2 + 1] = arregloI[cont2];
                     arregloI[cont2] = aux;
                 }
+
+                free_memo = runtime.freeMemory();
             }
-            
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException ex) {
-            }
+
+            //Calculando memoria consumida
+            txtMemoInser.setText("Memoria consumida: "
+                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+
+            //Calculando tiempo
             tiemp_fin = System.currentTimeMillis();
+            txtTimeInser.setText("Tiempo: " +Medir_Tiempo(tiemp_fin, tiemp_ini)
+                    + " Milisegundos");
 
-            total_time = tiemp_fin - tiemp_ini;
-            txtTimeInser.setText(total_time + " milisegundos");
-
+            //Imprimiendo valores ordenados
             String valores = "";
             for (int i = 0; i < arregloI.length; i++) {
                 valores += arregloI[i] + "\n";
@@ -77,13 +90,21 @@ public class Algoritmos {
         @Override
         public void run() {
 
+            //Declaración de variables
             int[] arregloB = new int[arreglo.length];
-            double tiemp_ini, tiemp_fin, total_time;
-            System.arraycopy(arreglo, 0, arregloB, 0, arreglo.length);
+            double tiemp_ini, tiemp_fin;
+            Runtime runtime = Runtime.getRuntime();
+            double total_memo = 0.0, free_memo = 0.0;
             int aux;
             boolean bandera = false;
 
+            //Copiando vector generado
+            System.arraycopy(arreglo, 0, arregloB, 0, arreglo.length);
+
+            total_memo = runtime.totalMemory();
             tiemp_ini = System.currentTimeMillis();
+
+            //Ciclo de ordenamiento
             while (true) {
                 bandera = false;
                 for (int i = 1; i < arregloB.length; i++) {
@@ -96,22 +117,26 @@ public class Algoritmos {
                         bandera = true;
 
                     }
+
                 }
 
                 if (bandera == false) {
+                    free_memo = runtime.freeMemory();
                     break;
+
                 }
             }
 
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException ex) {
-            }
+            //Calculando memoria consumida
+            txtMemoBurb.setText("Memoria consumida: "
+                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+
+            //Calculando tiempo
             tiemp_fin = System.currentTimeMillis();
+            txtTimeBurb.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
+                    + " Milisegundos");
 
-            total_time = tiemp_fin - tiemp_ini;
-            txtTimeBurb.setText(total_time + " milisegundos");
-
+            //Imprimiendo valores ordenados
             String valores = "";
             for (int i = 0; i < arregloB.length; i++) {
                 valores += arregloB[i] + "\n";
@@ -128,24 +153,37 @@ public class Algoritmos {
 
         @Override
         public void run() {
-            int[] arregloQ = new int[arreglo.length];
-            double tiemp_ini, tiemp_fin, total_time;
 
+            /**
+             * Declaraciones de variables*
+             */
+            int[] arregloQ = new int[arreglo.length];
+            double tiemp_ini, tiemp_fin;
+            Runtime runtime = Runtime.getRuntime();
+            double total_memo = 0.0, free_memo = 0.0;
+
+            /**
+             * Copiando vector generado*
+             */
             System.arraycopy(arreglo, 0, arregloQ, 0, arreglo.length);
 
+            total_memo = runtime.totalMemory();
             tiemp_ini = System.currentTimeMillis();
 
+            ////Función que mana a ciclo de ordenamiento
             quicksort(arregloQ, 0, arregloQ.length - 1);
 
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException ex) {
-            }
+            //Calculando memoria consumida
+            free_memo = runtime.freeMemory();
+            txtMemoQuick.setText("Memoria consumida: "
+                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+
+            //Calculando tiempo
             tiemp_fin = System.currentTimeMillis();
+            txtTimeQuick.setText("Tiempo: " +Medir_Tiempo(tiemp_fin, tiemp_ini)
+                    + " Milisegundos");
 
-            total_time = tiemp_fin - tiemp_ini;
-            txtTimeQuick.setText(total_time + " milisegundos");
-
+            //Imprimiendo valores ordenados
             String valores = "";
             for (int i = 0; i < arregloQ.length; i++) {
                 valores += arregloQ[i] + "\n";
@@ -154,6 +192,7 @@ public class Algoritmos {
 
         }
 
+        //Función de ordenamiento Quicksort
         public static void quicksort(int A[], int izq, int der) {
 
             int pivote = A[izq];
@@ -186,6 +225,30 @@ public class Algoritmos {
             }
         }
 
+    }
+
+    //Función para calcular consumo de memoria
+    public static double Memoria_Consumida(double total_memory, double free_memory) {
+        int dataSize = 1024 * 1024;
+        double consumo;
+
+        consumo = ((total_memory / dataSize) - (free_memory / dataSize)) / dataSize;
+   
+        return consumo;
+  
+    }
+
+    //Función para calcular el Tiempo
+    public static double Medir_Tiempo(double time_fin, double time_inic) {
+        double total_time = 0.0;
+
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException ex) {
+        }
+        total_time = time_fin - time_inic;
+        
+        return total_time;
     }
 
 }
