@@ -1,5 +1,6 @@
 package carrera_de_algoritmos;
 
+import carrera_de_algoritmos.Algoritmos.Alg_Burb_Bid;
 import carrera_de_algoritmos.Algoritmos.Alg_QuickSort;
 import carrera_de_algoritmos.Algoritmos.Alg_Burbuja;
 import carrera_de_algoritmos.Algoritmos.Alg_Insercion;
@@ -98,7 +99,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         jLabel4.setText("Ordenamiento por Inserción");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Algoritmo Secuencial");
+        jLabel5.setText("Ordenamiento Burbuja   Bidireccional");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Ordenamiento QuickSort");
@@ -197,11 +198,11 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                             .addComponent(txtTimeInser)
                             .addComponent(txtMemoInser))
                         .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTimeSec)
-                            .addComponent(txtMemoSec))
+                            .addComponent(txtMemoSec)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -214,7 +215,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMemoBurb))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,6 +304,9 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
             Alg_Burbuja AB = new Alg_Burbuja();
             AB.start();
+
+            Alg_Burb_Bid ABB = new Alg_Burb_Bid();
+            ABB.start();
 
             Alg_QuickSort AQ = new Alg_QuickSort();
             AQ.start();
@@ -414,13 +418,13 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
     public static javax.swing.JLabel txtMemoBurb;
     public static javax.swing.JLabel txtMemoInser;
     public static javax.swing.JLabel txtMemoQuick;
-    private javax.swing.JLabel txtMemoSec;
+    public static javax.swing.JLabel txtMemoSec;
     public static javax.swing.JTextArea txtQuickSort;
     public static javax.swing.JTextArea txtSecuencial;
     public static javax.swing.JLabel txtTimeBurb;
     public static javax.swing.JLabel txtTimeInser;
     public static javax.swing.JLabel txtTimeQuick;
-    private javax.swing.JLabel txtTimeSec;
+    public static javax.swing.JLabel txtTimeSec;
     private javax.swing.JTextArea txtVector;
     // End of variables declaration//GEN-END:variables
 }
