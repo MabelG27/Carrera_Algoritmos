@@ -5,10 +5,13 @@ import static carrera_de_algoritmos.Interfaz_Grafica.txtInsercion;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoBurb;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoInser;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoQuick;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtMemoSec;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtQuickSort;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtSecuencial;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeBurb;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeInser;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeQuick;
+import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeSec;
 import java.text.DecimalFormat;
 
 public class Algoritmos {
@@ -74,11 +77,75 @@ public class Algoritmos {
 
     }
 
-    public static class Alg_Secuencial extends Thread {
+    public static class Alg_Burb_Bid extends Thread {
 
         @Override
         public void run() {
 
+            int[] arregloBB = new int[arreglo.length];
+
+            //Copiando vector generado
+            System.arraycopy(arreglo, 0, arregloBB, 0, arreglo.length);
+
+            //Declaracion de variables
+            double tiemp_ini, tiemp_fin;
+            Runtime runtime = Runtime.getRuntime();
+            double total_memo = 0.0, free_memo = 0.0;
+            int izq = 0;
+            int der = arregloBB.length - 1;
+            int aux;
+            int ult = arregloBB.length - 1;
+
+            total_memo = runtime.totalMemory();
+            tiemp_ini = System.currentTimeMillis();
+            //Ciclo de ordenamiento
+
+            do {
+
+                //Recorreindo a la derecha
+                for (int i = izq; i < der; i++) {
+
+                    if (arregloBB[i] > arregloBB[i + 1]) {
+                        aux = arregloBB[i];
+                        arregloBB[i] = arregloBB[i + 1];
+                        arregloBB[i + 1] = aux;
+                        ult = i;
+                    }
+                }
+
+                der = ult;
+
+                //Recorrido a la izquierda
+                for (int j = der; j > izq; j--) {
+
+                    if (arregloBB[j - 1] > arregloBB[j]) {
+
+                        aux = arregloBB[j];
+                        arregloBB[j] = arregloBB[j - 1];
+                        arregloBB[j - 1] = aux;
+                        ult = j;
+                    }
+                }
+
+                izq = ult;
+                free_memo = runtime.freeMemory();
+            } while (izq < der);
+            tiemp_fin = System.currentTimeMillis();
+
+            //Calculando memoria consumida
+            txtMemoSec.setText("Memoria consumida: "
+                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+
+            //Calculando tiempo
+            txtTimeSec.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
+                    + " Milisegundos");
+
+            //Imprimiendo valores ordenados
+            String valores = "";
+            for (int i = 0; i < arregloBB.length; i++) {
+                valores += arregloBB[i] + "\n";
+            }
+            txtSecuencial.setText(valores);
         }
     }
 
@@ -121,11 +188,11 @@ public class Algoritmos {
                 }
                 free_memo = runtime.freeMemory();
                 if (bandera == false) {
-                    tiemp_fin = System.currentTimeMillis();
+                  
                     break;
                 }
-            }            
-            
+            } tiemp_fin = System.currentTimeMillis();
+
             //Calculando memoria consumida
             txtMemoBurb.setText("Memoria consumida: "
                     + Memoria_Consumida(total_memo, free_memo) + " MB");
@@ -232,12 +299,10 @@ public class Algoritmos {
 
         consumo = ((total_memory / dataSize) - (free_memory / dataSize)) / dataSize;
 
-        
-        
-        DecimalFormat df = new DecimalFormat("####.0000000"); 
-        
+        DecimalFormat df = new DecimalFormat("####.0000000");
+
         double cons = Double.parseDouble(df.format(consumo));
-        
+
         return cons;
 
     }
