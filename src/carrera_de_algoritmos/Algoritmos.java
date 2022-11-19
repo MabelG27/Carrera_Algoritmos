@@ -170,7 +170,7 @@ public class Algoritmos {
             total_memo = runtime.totalMemory();
             tiemp_ini = System.currentTimeMillis();
 
-            ////Función que mana a ciclo de ordenamiento
+            ////Función que manda a ciclo de ordenamiento
             quicksort(arregloQ, 0, arregloQ.length - 1);
 
             //Calculando memoria consumida
