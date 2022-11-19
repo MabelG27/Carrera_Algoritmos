@@ -9,7 +9,7 @@ import static carrera_de_algoritmos.Interfaz_Grafica.txtQuickSort;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeBurb;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeInser;
 import static carrera_de_algoritmos.Interfaz_Grafica.txtTimeQuick;
-
+import java.text.DecimalFormat;
 
 public class Algoritmos {
 
@@ -51,14 +51,14 @@ public class Algoritmos {
 
                 free_memo = runtime.freeMemory();
             }
+            tiemp_fin = System.currentTimeMillis();
 
             //Calculando memoria consumida
             txtMemoInser.setText("Memoria consumida: "
                     + Memoria_Consumida(total_memo, free_memo) + " MB");
 
             //Calculando tiempo
-            tiemp_fin = System.currentTimeMillis();
-            txtTimeInser.setText("Tiempo: " +Medir_Tiempo(tiemp_fin, tiemp_ini)
+            txtTimeInser.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
                     + " Milisegundos");
 
             //Imprimiendo valores ordenados
@@ -119,20 +119,18 @@ public class Algoritmos {
                     }
 
                 }
-
+                free_memo = runtime.freeMemory();
                 if (bandera == false) {
-                    free_memo = runtime.freeMemory();
+                    tiemp_fin = System.currentTimeMillis();
                     break;
-
                 }
-            }
-
+            }            
+            
             //Calculando memoria consumida
             txtMemoBurb.setText("Memoria consumida: "
                     + Memoria_Consumida(total_memo, free_memo) + " MB");
 
             //Calculando tiempo
-            tiemp_fin = System.currentTimeMillis();
             txtTimeBurb.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
                     + " Milisegundos");
 
@@ -180,7 +178,7 @@ public class Algoritmos {
 
             //Calculando tiempo
             tiemp_fin = System.currentTimeMillis();
-            txtTimeQuick.setText("Tiempo: " +Medir_Tiempo(tiemp_fin, tiemp_ini)
+            txtTimeQuick.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
                     + " Milisegundos");
 
             //Imprimiendo valores ordenados
@@ -233,9 +231,15 @@ public class Algoritmos {
         double consumo;
 
         consumo = ((total_memory / dataSize) - (free_memory / dataSize)) / dataSize;
-   
-        return consumo;
-  
+
+        
+        
+        DecimalFormat df = new DecimalFormat("####.0000000"); 
+        
+        double cons = Double.parseDouble(df.format(consumo));
+        
+        return cons;
+
     }
 
     //Función para calcular el Tiempo
@@ -247,7 +251,7 @@ public class Algoritmos {
         } catch (InterruptedException ex) {
         }
         total_time = time_fin - time_inic;
-        
+
         return total_time;
     }
 
