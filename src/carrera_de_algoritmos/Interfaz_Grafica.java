@@ -144,35 +144,35 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
         txtTimeInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeInser.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeInser.setText("0.0");
+        txtTimeInser.setText("Tiempo: 0.0 Milisegundos");
 
         txtTimeSec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeSec.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeSec.setText("0.0");
+        txtTimeSec.setText("Tiempo: 0.0 Milisegundos");
 
         txtTimeQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeQuick.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeQuick.setText("0.0");
+        txtTimeQuick.setText("Tiempo: 0.0 Milisegundos");
 
         txtTimeBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeBurb.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeBurb.setText("0.0");
+        txtTimeBurb.setText("Tiempo: 0.0 Milisegundos");
 
         txtMemoInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoInser.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoInser.setText("0.0");
+        txtMemoInser.setText("Memoria consumida: 0.0 MB");
 
         txtMemoBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoBurb.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoBurb.setText("0.0");
+        txtMemoBurb.setText("Memoria consumida: 0.0 MB");
 
         txtMemoQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoQuick.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoQuick.setText("0.0");
+        txtMemoQuick.setText("Memoria consumida: 0.0 MB");
 
         txtMemoSec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoSec.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoSec.setText("0.0");
+        txtMemoSec.setText("Memoria consumida: 0.0 MB");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -228,9 +228,9 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLlenar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,7 +251,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4))))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 134, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -266,7 +266,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
                         .addComponent(txtMemoBurb)
                         .addComponent(txtMemoQuick)
                         .addComponent(txtMemoSec)))
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -361,13 +361,14 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtQuickSort.setText("");
         txtSecuencial.setText("");
         txtVector.setText("");
-        txtTimeBurb.setText("0.0");
-        txtTimeInser.setText("0.0");
-        txtTimeQuick.setText("0.0");
-        txtTimeSec.setText("0.0");
-        txtMemoInser.setText("0.0");
-        txtMemoBurb.setText("0.0");
-        txtMemoQuick.setText("0.0");
+        txtTimeBurb.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeInser.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeQuick.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeSec.setText("Tiempo: 0.0 Milisegundos");
+        txtMemoInser.setText("Memoria consumida: 0.0 MB");
+        txtMemoBurb.setText("Memoria consumida: 0.0 MB");
+        txtMemoQuick.setText("Memoria consumida: 0.0 MB");
+        txtMemoSec.setText("Memoria consumida: 0.0 MB");
     }
 
     //Función para llenar el arreglo
@@ -379,7 +380,7 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
             for (int j = 0; j <= i; j++) {
 
-                arreglo[i] = (int) (Math.random() * 100);
+                arreglo[i] = (int) (Math.random() * 1000);
 
             }
 
