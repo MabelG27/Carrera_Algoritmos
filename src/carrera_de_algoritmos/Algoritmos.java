@@ -52,8 +52,8 @@ public class Algoritmos {
                     arregloI[cont2] = aux;
                 }
 
-                free_memo = runtime.freeMemory();
             }
+            free_memo = runtime.freeMemory();
             tiemp_fin = System.currentTimeMillis();
 
             //Calculando memoria consumida
@@ -128,8 +128,9 @@ public class Algoritmos {
                 }
 
                 izq = ult;
-                free_memo = runtime.freeMemory();
+
             } while (izq < der);
+            free_memo = runtime.freeMemory();
             tiemp_fin = System.currentTimeMillis();
 
             //Calculando memoria consumida
@@ -186,12 +187,13 @@ public class Algoritmos {
                     }
 
                 }
-                free_memo = runtime.freeMemory();
                 if (bandera == false) {
-                  
+
                     break;
                 }
-            } tiemp_fin = System.currentTimeMillis();
+            }
+            free_memo = runtime.freeMemory();
+            tiemp_fin = System.currentTimeMillis();
 
             //Calculando memoria consumida
             txtMemoBurb.setText("Memoria consumida: "
@@ -238,13 +240,15 @@ public class Algoritmos {
             ////Función que manda a ciclo de ordenamiento
             quicksort(arregloQ, 0, arregloQ.length - 1);
 
-            //Calculando memoria consumida
+            
             free_memo = runtime.freeMemory();
+            tiemp_fin = System.currentTimeMillis();
+            
+            //Calculando memoria consumida
             txtMemoQuick.setText("Memoria consumida: "
                     + Memoria_Consumida(total_memo, free_memo) + " MB");
 
             //Calculando tiempo
-            tiemp_fin = System.currentTimeMillis();
             txtTimeQuick.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
                     + " Milisegundos");
 
