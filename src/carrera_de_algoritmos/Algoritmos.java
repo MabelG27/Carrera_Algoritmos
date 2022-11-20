@@ -58,11 +58,11 @@ public class Algoritmos {
 
             //Calculando memoria consumida
             txtMemoInser.setText("Memoria consumida: "
-                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+                    + Memoria_Consumida(total_memo, free_memo) + " KB");
 
             //Calculando tiempo
             txtTimeInser.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
-                    + " Milisegundos");
+                    + " ms");
 
             //Imprimiendo valores ordenados
             String valores = "";
@@ -130,16 +130,17 @@ public class Algoritmos {
                 izq = ult;
 
             } while (izq < der);
+
             free_memo = runtime.freeMemory();
             tiemp_fin = System.currentTimeMillis();
 
             //Calculando memoria consumida
             txtMemoSec.setText("Memoria consumida: "
-                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+                    + Memoria_Consumida(total_memo, free_memo) + " KB");
 
             //Calculando tiempo
             txtTimeSec.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
-                    + " Milisegundos");
+                    + " ms");
 
             //Imprimiendo valores ordenados
             String valores = "";
@@ -197,11 +198,11 @@ public class Algoritmos {
 
             //Calculando memoria consumida
             txtMemoBurb.setText("Memoria consumida: "
-                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+                    + Memoria_Consumida(total_memo, free_memo) + " KB");
 
             //Calculando tiempo
             txtTimeBurb.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
-                    + " Milisegundos");
+                    + " ms");
 
             //Imprimiendo valores ordenados
             String valores = "";
@@ -240,17 +241,16 @@ public class Algoritmos {
             ////Función que manda a ciclo de ordenamiento
             quicksort(arregloQ, 0, arregloQ.length - 1);
 
-            
             free_memo = runtime.freeMemory();
             tiemp_fin = System.currentTimeMillis();
-            
+
             //Calculando memoria consumida
             txtMemoQuick.setText("Memoria consumida: "
-                    + Memoria_Consumida(total_memo, free_memo) + " MB");
+                    + Memoria_Consumida(total_memo, free_memo) + " KB");
 
             //Calculando tiempo
             txtTimeQuick.setText("Tiempo: " + Medir_Tiempo(tiemp_fin, tiemp_ini)
-                    + " Milisegundos");
+                    + " ms");
 
             //Imprimiendo valores ordenados
             String valores = "";
@@ -298,12 +298,12 @@ public class Algoritmos {
 
     //Función para calcular consumo de memoria
     public static double Memoria_Consumida(double total_memory, double free_memory) {
-        int dataSize = 1024 * 1024;
+        int dataSize = 1024;
         double consumo;
 
         consumo = ((total_memory / dataSize) - (free_memory / dataSize)) / dataSize;
 
-        DecimalFormat df = new DecimalFormat("####.0000000");
+        DecimalFormat df = new DecimalFormat("####.00");
 
         double cons = Double.parseDouble(df.format(consumo));
 
