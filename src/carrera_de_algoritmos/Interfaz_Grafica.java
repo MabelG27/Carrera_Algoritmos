@@ -5,6 +5,10 @@ import carrera_de_algoritmos.Algoritmos.Alg_QuickSort;
 import carrera_de_algoritmos.Algoritmos.Alg_Burbuja;
 import carrera_de_algoritmos.Algoritmos.Alg_Insercion;
 import static carrera_de_algoritmos.Algoritmos.arreglo;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +52,10 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtMemoBurb = new javax.swing.JLabel();
         txtMemoQuick = new javax.swing.JLabel();
         txtMemoSec = new javax.swing.JLabel();
+        txtCpuBB = new javax.swing.JLabel();
+        txtCpuInser = new javax.swing.JLabel();
+        txtCpuQuick = new javax.swing.JLabel();
+        txtCpuBurb = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,129 +153,157 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
         txtTimeInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeInser.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeInser.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeInser.setText("Tiempo: 0.0 ms");
 
         txtTimeSec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeSec.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeSec.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeSec.setText("Tiempo: 0.0 ms");
 
         txtTimeQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeQuick.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeQuick.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeQuick.setText("Tiempo: 0.0 ms");
 
         txtTimeBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtTimeBurb.setForeground(new java.awt.Color(153, 0, 0));
-        txtTimeBurb.setText("Tiempo: 0.0 Milisegundos");
+        txtTimeBurb.setText("Tiempo: 0.0 ms");
 
         txtMemoInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoInser.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoInser.setText("Memoria consumida: 0.0 MB");
+        txtMemoInser.setText("Memoria consumida: 0.0 KB");
 
         txtMemoBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoBurb.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoBurb.setText("Memoria consumida: 0.0 MB");
+        txtMemoBurb.setText("Memoria consumida: 0.0 KB");
 
         txtMemoQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoQuick.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoQuick.setText("Memoria consumida: 0.0 MB");
+        txtMemoQuick.setText("Memoria consumida: 0.0 KB");
 
         txtMemoSec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMemoSec.setForeground(new java.awt.Color(153, 0, 0));
-        txtMemoSec.setText("Memoria consumida: 0.0 MB");
+        txtMemoSec.setText("Memoria consumida: 0.0 KB");
+
+        txtCpuBB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCpuBB.setForeground(new java.awt.Color(153, 0, 0));
+        txtCpuBB.setText("CPU time: 0.0 ns");
+
+        txtCpuInser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCpuInser.setForeground(new java.awt.Color(153, 0, 0));
+        txtCpuInser.setText("CPU time:: 0.0 ns");
+        txtCpuInser.setToolTipText("");
+
+        txtCpuQuick.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCpuQuick.setForeground(new java.awt.Color(153, 0, 0));
+        txtCpuQuick.setText("CPU time: 0.0 ns");
+
+        txtCpuBurb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCpuBurb.setForeground(new java.awt.Color(153, 0, 0));
+        txtCpuBurb.setText("CPU time: 0.0 ns");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnLlenar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2)
                     .addGroup(panel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLlenar, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2)))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTimeInser)
-                            .addComponent(txtMemoInser))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTimeSec)
-                            .addComponent(txtMemoSec)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(txtMemoInser)
+                            .addComponent(txtCpuInser))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTimeSec)
+                                .addComponent(txtMemoSec)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(txtCpuBB))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTimeQuick)
-                            .addComponent(txtMemoQuick))
+                            .addComponent(txtMemoQuick)
+                            .addComponent(txtCpuQuick))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCpuBurb)
                             .addComponent(txtTimeBurb)
                             .addComponent(jLabel7)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMemoBurb))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLlenar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                            .addComponent(jScrollPane5)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4))))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(0, 134, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTimeInser)
-                    .addComponent(txtTimeSec)
-                    .addComponent(txtTimeQuick)
-                    .addComponent(txtTimeBurb))
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMemoInser)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMemoBurb)
-                        .addComponent(txtMemoQuick)
-                        .addComponent(txtMemoSec)))
-                .addContainerGap())
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(BtnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTimeInser)
+                            .addComponent(txtTimeSec)
+                            .addComponent(txtTimeQuick)
+                            .addComponent(txtTimeBurb))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMemoInser)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtMemoBurb)
+                                .addComponent(txtMemoQuick)
+                                .addComponent(txtMemoSec)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCpuInser)
+                                .addComponent(txtCpuBB))
+                            .addComponent(txtCpuQuick)
+                            .addComponent(txtCpuBurb)))
+                    .addComponent(btnLlenar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -310,6 +346,39 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
 
             Alg_QuickSort AQ = new Alg_QuickSort();
             AQ.start();
+
+            DecimalFormat formatea = new DecimalFormat("###,###.##");
+            ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+
+            for (Long threadID : threadMXBean.getAllThreadIds()) {
+                ThreadInfo info = threadMXBean.getThreadInfo(threadID);
+                System.out.println("Thread name: " + info.getThreadName());
+                System.out.println("Thread State: " + info.getThreadState());
+                System.out.println(String.format("CPU time: %s ns",
+                        threadMXBean.getThreadCpuTime(threadID)));
+
+                if (info.getThreadName().equals("Thread-0")) {
+
+                    txtCpuInser.setText(String.format("CPU time: %s ns",
+                            formatea.format(threadMXBean.getThreadCpuTime(threadID))));
+
+                } else if (info.getThreadName().equals("Thread-1")) {
+
+                    txtCpuBurb.setText(String.format("CPU time: %s ns",
+                            formatea.format(threadMXBean.getThreadCpuTime(threadID))));
+
+                } else if (info.getThreadName().equals("Thread-2")) {
+
+                    txtCpuBB.setText(String.format("CPU time: %s ns",
+                            formatea.format(threadMXBean.getThreadCpuTime(threadID))));
+
+                } else if (info.getThreadName().equals("Thread-3")) {
+
+                    txtCpuQuick.setText(String.format("CPU time: %s ns",
+                            formatea.format(threadMXBean.getThreadCpuTime(threadID))));
+                }
+
+            }
 
         }
     }//GEN-LAST:event_BtnIniciarActionPerformed
@@ -365,14 +434,18 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
         txtQuickSort.setText("");
         txtSecuencial.setText("");
         txtVector.setText("");
-        txtTimeBurb.setText("Tiempo: 0.0 Milisegundos");
-        txtTimeInser.setText("Tiempo: 0.0 Milisegundos");
-        txtTimeQuick.setText("Tiempo: 0.0 Milisegundos");
-        txtTimeSec.setText("Tiempo: 0.0 Milisegundos");
-        txtMemoInser.setText("Memoria consumida: 0.0 MB");
-        txtMemoBurb.setText("Memoria consumida: 0.0 MB");
-        txtMemoQuick.setText("Memoria consumida: 0.0 MB");
-        txtMemoSec.setText("Memoria consumida: 0.0 MB");
+        txtTimeBurb.setText("Tiempo: 0.0 ms");
+        txtTimeInser.setText("Tiempo: 0.0 ms");
+        txtTimeQuick.setText("Tiempo: 0.0 ms");
+        txtTimeSec.setText("Tiempo: 0.0 ms");
+        txtMemoInser.setText("Memoria consumida: 0.0 KB");
+        txtMemoBurb.setText("Memoria consumida: 0.0 KB");
+        txtMemoQuick.setText("Memoria consumida: 0.0 KB");
+        txtMemoSec.setText("Memoria consumida: 0.0 KB");
+        txtCpuInser.setText("CPU time:: 0.0 ns");
+        txtCpuBB.setText("CPU time: 0.0 ns");
+        txtCpuBurb.setText("CPU time:: 0.0 ns");
+        txtCpuQuick.setText("CPU time:: 0.0 ns");
     }
 
     //Función para llenar el arreglo
@@ -414,6 +487,10 @@ public class Interfaz_Grafica extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Panel panel1;
     public static javax.swing.JTextArea txtBurbuja;
+    public static javax.swing.JLabel txtCpuBB;
+    public static javax.swing.JLabel txtCpuBurb;
+    public static javax.swing.JLabel txtCpuInser;
+    public static javax.swing.JLabel txtCpuQuick;
     public static javax.swing.JTextArea txtInsercion;
     public static javax.swing.JLabel txtMemoBurb;
     public static javax.swing.JLabel txtMemoInser;
